@@ -13,9 +13,11 @@ function App() {
 
     setToDoList((currentToDoList) => [toDo, ...currentToDoList]); // 함수를 이용한 값 변경 (첫 번째 인자로 현재 state 값 받음)
     setToDo(""); // to-do 추가된 후 input 비우고 싶어서 / 직접적인 값 변경
+
+    console.log(toDoList); // 상태 업데이트가 비동기적이어서 상태가 업데이트 중이기 때문에 이전 값이 출력됨
   }
 
-  console.log(toDoList);
+  console.log(toDoList); // 리렌더링 후 상태가 최신 값으로 반영되어 업데이트된 값이 출력됨
   console.log(toDoList.map((item, index) => (<li key={index}>{item}</li>)));
 
   return (
@@ -44,5 +46,5 @@ export default App;
   {toDoList.map((item, index) => (
     <li key={index}>{item}</li>
   ))}
-  -> react element로서의 새로운 array를 얻음
+  -> react element로서의 새로운 배열을 얻고 이후 React가 새로운 배열을 자동으로 UI로 변환
 */
